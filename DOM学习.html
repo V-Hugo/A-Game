@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>标题</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<div id='001'>内容</div>
+	<ol id='002'>
+		<li>文字列表</li>
+		<li>文字列表</li>
+		<li>文字列表</li>
+		<li>文字列表</li>
+	</ol>
+	</ol>
+	<script>
+		// 获取元素的ID
+		var n = document.getElementById('001');
+		console.log(n);
+		console.log(typeof n); // 查看返回数据类型
+		console.dir(n); // 打印元素对象，查看属性与方法
+		// 获取元素的标签
+		var lis = document.getElementsByTagName('li');
+		console.log(lis);
+		console.log(lis[0]);
+		for (var i = 1; i < lis.length; i++) {
+			console.log(lis[i]);
+		}
+		// 获取父元素中的子元素
+		var ol = document.getElementsByTagName('ol');
+		console.log(ol[0].getElementsByTagName('li'));
+		// 等价于
+		var ol = document.getElementById('002');  // 没有s
+		console.log(ol.getElementsByTagName('li'));
+		// H5新增获取：类名、选择器名
+		var boxs = document.getElementsByClassName('box'); //类名
+		console.log(boxs);
+		var boxs = document.querySelector('.nav'); // 选择器：类名
+		var box1 = document.querySelector('#nav'); // 选择器：ID名
+		var box2 = document.querySelector('nav'); // 选择器：标签名
+		var box3 = document.querySelectorAll('nav'); // 所有元素的集合
+
+		// 获取body元素
+		var body01 = document.body;
+		var html01 = document.documentElement;
+	</script>
+	<button id='btn'>按钮</button>
+	<script>
+		// 事件三要素：事件源、事件类型、事件处理程序
+		// 1 获取事件源
+		var btn = document.getElementById('btn');
+		// 2 绑定事件：注册事件
+		// btn.onclick
+		// 3 添加事件处理程序
+		btn.onclick = function () {
+			console.log('记录数据');
+			alert('弹出对话框');
+		}
+
+		// 常见鼠标事件：
+		/*
+		onclick 鼠标点击左键触发
+		onmouseover 鼠标经过触发
+		onmouseout 鼠标离开触发
+		onfocus 获取鼠标焦点触发
+		onblur 失去鼠标焦点触发
+		onmousemove 鼠标移动触发
+		onmouseup 鼠标弹起触发
+		onmousedown 鼠标按下触发
+		*/
+	</script>
+	<button id='a'>显示当前系统时间</button>
+	<div id='b01'>某个时间</div>
+	<p>112233</p>
+	<p id='c'>113355</p>
+	<script>
+		var btn01 = document.querySelector('#a');
+		var div = document.querySelector('#b01');
+		btn01.onclick = function () {
+			div.innerText = '2020';
+		}
+		// 自动更新
+		var p = document.querySelector('p');
+		p.innerText = '123';
+		// innerText（非标准） 和 innerHtml（标准） 的区别
+		// 后者保留空格和换行
+		var cc = document.querySelector('#c');
+		cc.innerHTML = '<strong>123</strong>456';
+	</script>
+	<button>按钮</button>
+	<script>
+	</script>
+</body>
+
+</html>
